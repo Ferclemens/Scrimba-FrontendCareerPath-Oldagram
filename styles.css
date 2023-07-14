@@ -1,0 +1,19 @@
+body {
+    background-color: rgb(64, 107, 144);
+    font-family: 'Source Sans 3', sans-serif;
+}
+.container {
+    width: 375px;
+    height: auto;
+    background-color: #FFFFFF;
+}
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0  15px;
+}
+header img {
+    height: 37px;
+    width: 37px;
+}

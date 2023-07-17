@@ -6,6 +6,7 @@ body {
     width: 375px;
     height: auto;
     background-color: #FFFFFF;
+    margin: 0 auto;
 }
 header {
     display: flex;

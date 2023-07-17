@@ -1,3 +1,5 @@
+
+
 const posts = [
     {
         name: "Vincent van Gogh",
@@ -28,10 +30,14 @@ const posts = [
     }
 ]
 
+
+let postsCounter = 0
+
 function setPosts(array) {
     let render = ''
 
     for(let i = 0; i < array.length; i++) {
+        postsCounter += 1
         render += 
         `<div class="card">
             <div class="card-header">
@@ -42,9 +48,10 @@ function setPosts(array) {
                 </div>
             </div>
             <img class="post-image" src=${array[i].post}>
+            <img class="post-heart" id="heart-el${i}" src="images/icon-heart-active.png">    
             <div class="description--container">
                 <div class="buttons-container">
-                    <button><img src="images/icon-heart.png"></button>
+                    <button class="like-btn" id="${i}"><img src="images/icon-heart.png" id="heart-img" ></button>
                     <button><img src="images/icon-comment.png"></button>
                     <button><img src="images/icon-dm.png"></button>
                 </div>
@@ -56,7 +63,26 @@ function setPosts(array) {
     }
     return render
 }
+
 //references
 const postsEl = document.getElementById('posts-el')
+
 const postsList =setPosts(posts)
 postsEl.innerHTML = postsList
+ 
+
+
+const lista = document.getElementsByClassName('like-btn')
+
+for(let i = 0; i < lista.length; i++) {
+    let element = document.getElementById(`heart-el${i}`)
+    let heartImgEl = document.getElementById(`heart-img${i}`)
+    lista[i].addEventListener('click', function(){
+        //console.log('ID?',i);
+        //console.log('ID heart', element);
+        element.style.display = 'block'
+        setTimeout(() => {
+            element.style.display = 'none'
+        },1000)
+    })
+}

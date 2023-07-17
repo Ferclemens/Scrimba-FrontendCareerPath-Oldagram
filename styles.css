@@ -25,6 +25,9 @@ header {
     margin: 0;
     padding: 0;
 }
+.card {
+    position: relative;
+}
 .card-header {
     display: flex;
     align-items: center;
@@ -37,6 +40,7 @@ header {
 }
 .post-image {
     width: 375px;
+    user-select: none;
 }
 .description--container {
     padding-left: 10px;
@@ -48,6 +52,7 @@ header {
 .buttons-container {
     display: flex;
     gap: 5px;
+    user-select: none;
 }
 .buttons-container img {
     width: 20px;
@@ -58,8 +63,24 @@ header {
     cursor: pointer;
     padding: 2px;
 }
+.buttons-container button:hover {
+    filter: opacity(0.5);
+
+}
+#heart-img:active {
+    background-image: url('images/icon-heart-active.png');
+    background-size: cover; 
+}
 .separator {
     height: 20px;
     background-color: #EDEDED;
     border: none;;
+}
+.post-heart {
+    position: absolute;
+    left: 150px;
+    top: 220px;
+    width: 60px;
+    height: 60px;
+    display: none;
 }

@@ -28,10 +28,35 @@ const posts = [
     }
 ]
 
-const postsEl = document.getElementById('posts-el')
-
 function setPosts(array) {
+    let render = ''
+
     for(let i = 0; i < array.length; i++) {
-        
+        render += 
+        `<div class="card">
+            <div class="card-header">
+                <img class="avatar" src=${array[i].avatar}>
+                <div class="header-description">
+                    <strong><p>${array[i].name}</p></strong>
+                    <p>${array[i].location}</p>
+                </div>
+            </div>
+            <img class="post-image" src=${array[i].post}>
+            <div class="description--container">
+                <div class="buttons-container">
+                    <button><img src="images/icon-heart.png"></button>
+                    <button><img src="images/icon-comment.png"></button>
+                    <button><img src="images/icon-dm.png"></button>
+                </div>
+                <strong><p>${array[i].likes} likes</p></strong>
+                <strong><p>${array[i].username}</strong> ${array[i].comment}</p>
+            </div>
+            <hr class="separator">
+        </div>`
     }
+    return render
 }
+//references
+const postsEl = document.getElementById('posts-el')
+const postsList =setPosts(posts)
+postsEl.innerHTML = postsList
